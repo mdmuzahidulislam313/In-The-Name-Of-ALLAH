@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>In The Name Of ALLAH</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #000000;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+    }
+    h1 span {
+      display: inline-block;
+      position: relative;
+      color: #ffffff;
+      font-weight: bold;
+      animation: divineGlow 2s infinite alternate;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      color: #e5e7eb;
+    }
+    .names-container {
+    display: grid;
+    grid-template-rows: auto repeat(2, auto); 
+    grid-template-columns: 1fr; 
+    gap: 30px;
+    width: 80%;
+    max-width: 1200px;
+  }
+
+  .name-card:nth-child(1) {
+    grid-column: 1 / -1; 
+    justify-self: center; 
+  }
+
+  .name-card:nth-child(n+2) {
+    grid-column: auto; 
+	}
+
+  .names-container {
+    grid-template-columns: repeat(4, 1fr); 
+  }
+    .name-card {
+      background: linear-gradient(145deg, #111111, #2c2c2c);
+      border: none;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .name-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+    }
+    .name-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #38bdf8;
+      font-weight: bold;
+    }
+    .name-card p {
+      font-size: 1rem;
+      color: #e5e7eb;
+    }
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #d1d5db;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    @keyframes divineGlow {
+      0% {
+        text-shadow:
+          0 0 1px #ffffff,
+          0 0 2px #ffffff,
+          0 0 3px #ffffff;
+      }
+      100% {
+        text-shadow:
+          0 0 3px #ffffff,
+          0 0 4.5px #ffffff,
+          0 0 6px #ffffff,
+          0 0 7.5px #ffffff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    In The Name Of <span>ALLAH</span>,<br>
+    <span>The Lord</span> Of The Worlds
+  </h1>
+  <h2>The Most Beautiful and Glorious Names</h2>
+  <div class="names-container">
+    <div class="name-card">
+      <h3>Ar-Rahman</h3>
+      <p>The Most Gracious</p>
+    </div>
+	</>
+    <div class="name-card">
+      <h3>Ar-Rahim</h3>
+      <p>The Most Merciful</p>
+    </div>
+    <div class="name-card">
+      <h3>Al-Malik</h3>
+      <p>The King and Owner</p>
+    </div>
+    <div class="name-card">
+      <h3>Al-Quddus</h3>
+      <p>The Absolutely Pure</p>
+    </div>
+    <div class="name-card">
+      <h3>As-Salam</h3>
+      <p>The Source of Peace</p>
+    </div>
+    <div class="name-card">
+      <h3>Al-Aziz</h3>
+      <p>The Almighty</p>
+    </div>
+    <div class="name-card">
+      <h3>Al-Hakim</h3>
+      <p>The All-Wise</p>
+    </div>
+    <div class="name-card">
+      <h3>Al-Karim</h3>
+      <p>The Generous</p>
+    </div>
+    <div class="name-card">
+      <h3>Ar-Razzaq</h3>
+      <p>The Provider</p>
+    </div>
+  </div>
+  <footer>
+    Designed with ❤️. All praises are due to Allah, the Lord of all the worlds.
+    <br>
+    <a href="#">Learn More</a>
+  </footer>
+</body>
+</html>
