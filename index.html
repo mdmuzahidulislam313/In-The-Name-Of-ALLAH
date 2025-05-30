@@ -3,164 +3,1007 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>In The Name Of ALLAH</title>
+  <title>الأسماء الحسنى - The Beautiful Names of ALLAH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
+    
     body {
-      background: #000000;
+      background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f0f23);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
       color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Floating Particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle, rgba(255,215,0,0.8) 0%, rgba(255,215,0,0.2) 50%, transparent 100%);
+      border-radius: 50%;
+      animation: float 15s infinite linear;
+    }
+
+    /* Islamic Geometric Pattern */
+    .geometric-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      z-index: 1;
+      background-image: 
+        radial-gradient(circle at 25% 25%, #ffd700 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, #ffd700 2px, transparent 2px),
+        radial-gradient(circle at 25% 75%, #ffd700 1px, transparent 1px),
+        radial-gradient(circle at 75% 25%, #ffd700 1px, transparent 1px);
+      background-size: 50px 50px, 50px 50px, 100px 100px, 100px 100px;
+      animation: geometricMove 30s ease-in-out infinite;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      padding: 2rem;
+    }
+
+    /* Header Section */
+    .header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 2rem 0;
+    }
+
+    .bismillah {
+      font-family: 'Scheherazade New', serif;
+      font-size: 2.5rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+      animation: bismillahGlow 3s ease-in-out infinite alternate;
+      font-weight: 700;
+    }
+
+    .main-title {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #ffd700, #ffffff, #ffd700, #ffffff);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleShine 4s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    }
+
+    .main-title .allah-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      overflow: hidden;
-      text-align: center;
-    }
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
-      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
-    }
-    h1 span {
-      display: inline-block;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
       position: relative;
-      color: #ffffff;
-      font-weight: bold;
-      animation: divineGlow 2s infinite alternate;
     }
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 40px;
+
+    .main-title .allah {
+      font-family: 'Amiri', serif;
+      display: block;
+      font-size: 2em;
+      background: linear-gradient(45deg, #ffd700, #ffffff, #ffd700);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: divineGlow 3s infinite alternate, titleShine 4s ease-in-out infinite;
+      text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 30px rgba(255, 215, 0, 0.4);
+      position: relative;
+      z-index: 3;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transform-origin: center;
+    }
+
+    .main-title .allah::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent 70%);
+      z-index: -1;
+      animation: pulseLight 3s infinite alternate;
+    }
+
+    .main-title .allah:first-of-type {
+      margin-bottom: -0.5rem;
+    }
+
+    .main-title .allah:last-of-type {
+      margin-top: -0.5rem;
+    }
+
+    .main-title .lord-worlds {
+      display: block;
+      font-size: 2.5rem;
+      margin-top: 1.5rem;
+      font-family: 'Scheherazade New', serif;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ffd700, #ffffff, #ffd700);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleShine 4s ease-in-out infinite;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .main-title .lord-worlds::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+    }
+
+    .main-title .lord-worlds .arabic-text {
+      display: block;
+      font-family: 'Scheherazade New', serif;
+      font-size: 1.3em;
+      margin-top: 0.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ffd700, #ffffff, #ffd700);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleShine 4s ease-in-out infinite;
+      text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.3),
+        0 0 20px rgba(255, 215, 0, 0.2);
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
       color: #e5e7eb;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      animation: fadeInUp 1s ease-out 0.5s both;
     }
+
+    .verse {
+      font-family: 'Scheherazade New', serif;
+      font-size: 1.3rem;
+      color: #ffd700;
+      font-style: italic;
+      animation: fadeInUp 1s ease-out 1s both;
+    }
+
+    .names-counter {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 50px;
+      display: inline-block;
+      animation: fadeInUp 1s ease-out 1.5s both;
+    }
+
+    .counter-text {
+      font-size: 1.1rem;
+      color: #e5e7eb;
+      font-weight: 300;
+    }
+
+    .counter-number {
+      color: #ffd700;
+      font-weight: 600;
+      font-size: 1.2em;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    /* Names Grid */
     .names-container {
-    display: grid;
-    grid-template-rows: auto repeat(2, auto); 
-    grid-template-columns: 1fr; 
-    gap: 30px;
-    width: 80%;
-    max-width: 1200px;
-  }
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
 
-  .name-card:nth-child(1) {
-    grid-column: 1 / -1; 
-    justify-self: center; 
-  }
-
-  .name-card:nth-child(n+2) {
-    grid-column: auto; 
-	}
-
-  .names-container {
-    grid-template-columns: repeat(4, 1fr); 
-  }
     .name-card {
-      background: linear-gradient(145deg, #111111, #2c2c2c);
-      border: none;
-      border-radius: 15px;
-      padding: 25px;
+      background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
+      border: 2px solid rgba(255, 215, 0, 0.1);
+      border-radius: 25px;
+      padding: 2rem;
       text-align: center;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transform: translateY(0) rotateX(0deg);
+      opacity: 1;
     }
+
+    .name-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 215, 0, 0.3), 
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 215, 0, 0.3), 
+        transparent);
+      transition: left 0.8s ease;
+    }
+
+    .name-card::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ffd700, transparent, #00bfff, transparent, #ffd700);
+      border-radius: 25px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .name-card:hover::before {
+      left: 100%;
+    }
+
+    .name-card:hover::after {
+      opacity: 1;
+    }
+
     .name-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+      transform: translateY(-15px) rotateY(8deg) scale(1.08);
+      box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.9),
+        0 0 60px rgba(255, 215, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 215, 0, 0.8);
     }
-    .name-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      color: #38bdf8;
-      font-weight: bold;
+
+    .name-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 2.8rem;
+      color: #ffd700;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      text-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.8),
+        0 0 40px rgba(255, 215, 0, 0.4);
+      animation: arabicGlow 3s ease-in-out infinite alternate;
     }
-    .name-card p {
+
+    .name-transliteration {
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .name-meaning {
       font-size: 1rem;
-      color: #e5e7eb;
+      color: #c5c9d1;
+      line-height: 1.4;
+      font-weight: 300;
     }
-    footer {
-      margin-top: 60px;
+
+    /* Footer */
+    .footer {
       text-align: center;
+      padding: 4rem 2rem 2rem;
       color: #d1d5db;
-      font-size: 0.9rem;
     }
-    footer a {
-      color: #38bdf8;
-      text-decoration: none;
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
     }
+
+    .footer-text {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .footer-verse {
+      font-family: 'Scheherazade New', serif;
+      font-size: 1.2rem;
+      color: #ffd700;
+      font-style: italic;
+    }
+
+    /* Animations */
+    @keyframes gradientBG {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes float {
+      0% { 
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { 
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes geometricMove {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      25% { transform: translateX(10px) translateY(-10px); }
+      50% { transform: translateX(-5px) translateY(10px); }
+      75% { transform: translateX(-10px) translateY(-5px); }
+    }
+
+    @keyframes bismillahGlow {
+      0% { 
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        transform: scale(1);
+      }
+      100% { 
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.4);
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes titleShine {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes pulseLight {
+      0% {
+        width: 120%;
+        height: 120%;
+        opacity: 0.2;
+      }
+      100% {
+        width: 140%;
+        height: 140%;
+        opacity: 0.4;
+      }
+    }
+
     @keyframes divineGlow {
       0% {
         text-shadow:
-          0 0 1px #ffffff,
-          0 0 2px #ffffff,
-          0 0 3px #ffffff;
+          0 0 10px rgba(255, 215, 0, 0.8),
+          0 0 20px rgba(255, 215, 0, 0.6),
+          0 0 30px rgba(255, 215, 0, 0.4);
+        transform: scale(1);
       }
       100% {
         text-shadow:
-          0 0 3px #ffffff,
-          0 0 4.5px #ffffff,
-          0 0 6px #ffffff,
-          0 0 7.5px #ffffff;
+          0 0 15px rgba(255, 215, 0, 0.9),
+          0 0 30px rgba(255, 215, 0, 0.7),
+          0 0 45px rgba(255, 215, 0, 0.5);
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cardReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+      }
+    }
+
+    @keyframes arabicGlow {
+      0% {
+        text-shadow: 
+          0 0 20px rgba(255, 215, 0, 0.8),
+          0 0 40px rgba(255, 215, 0, 0.4);
+        transform: scale(1);
+      }
+      100% {
+        text-shadow: 
+          0 0 30px rgba(255, 215, 0, 1),
+          0 0 60px rgba(255, 215, 0, 0.6),
+          0 0 90px rgba(255, 215, 0, 0.3);
+        transform: scale(1.02);
+      }
+    }
+
+    /* Cosmic Background Effects */
+    .cosmic-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 30%);
+      animation: cosmicMove 25s ease-in-out infinite;
+    }
+
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .star {
+      position: absolute;
+      background: #ffffff;
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    @keyframes cosmicMove {
+      0%, 100% { 
+        transform: translateX(0) translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      25% { 
+        transform: translateX(20px) translateY(-20px) rotate(90deg);
+        opacity: 1;
+      }
+      50% { 
+        transform: translateX(-10px) translateY(20px) rotate(180deg);
+        opacity: 0.6;
+      }
+      75% { 
+        transform: translateX(-20px) translateY(-10px) rotate(270deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { 
+        opacity: 0.3;
+        transform: scale(1);
+      }
+      50% { 
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    /* Additional Cosmic Effects */
+    .aurora {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      background: 
+        linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent),
+        linear-gradient(180deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+      animation: auroraMove 20s ease-in-out infinite;
+    }
+
+    .divine-light {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 2;
+      animation: divineLight 8s ease-in-out infinite;
+    }
+
+    @keyframes auroraMove {
+      0%, 100% { 
+        transform: translateX(-100px) translateY(-50px) rotate(0deg);
+        opacity: 0.3;
+      }
+      25% { 
+        transform: translateX(100px) translateY(50px) rotate(90deg);
+        opacity: 0.7;
+      }
+      50% { 
+        transform: translateX(-50px) translateY(100px) rotate(180deg);
+        opacity: 0.5;
+      }
+      75% { 
+        transform: translateX(50px) translateY(-100px) rotate(270deg);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes divineLight {
+      0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+      }
+      50% { 
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.6;
+      }
+    }
+
+    /* Enhanced Card Glow */
+    .name-card:nth-child(7n) {
+      box-shadow: 
+        0 20px 60px rgba(255, 215, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 0 1px rgba(255, 215, 0, 0.2);
+    }
+
+    .name-card:nth-child(11n) {
+      box-shadow: 
+        0 20px 60px rgba(0, 191, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 0 1px rgba(0, 191, 255, 0.2);
+    }
+
+    .divine-separator {
+      display: inline-block;
+      width: 3px;
+      height: 1.5em;
+      background: linear-gradient(to bottom, transparent, #ffd700, transparent);
+      margin: 0 0.5rem;
+      vertical-align: middle;
+      animation: separatorGlow 2s infinite alternate;
+    }
+
+    @keyframes separatorGlow {
+      0% {
+        opacity: 0.3;
+        transform: scaleY(1);
+      }
+      100% {
+        opacity: 0.7;
+        transform: scaleY(1.2);
+      }
+    }
+
+    .divine-vertical-separator {
+      width: 150px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #ffd700, transparent);
+      margin: 0.5rem auto;
+      animation: separatorGlow 2s infinite alternate;
+      position: relative;
+    }
+
+    .divine-vertical-separator::before,
+    .divine-vertical-separator::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ffd700;
+      transform: translateY(-50%);
+      animation: dotGlow 2s infinite alternate;
+    }
+
+    .divine-vertical-separator::before {
+      left: 25%;
+    }
+
+    .divine-vertical-separator::after {
+      right: 25%;
+    }
+
+    @keyframes dotGlow {
+      0% {
+        transform: translateY(-50%) scale(1);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-50%) scale(1.5);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .names-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+      }
+      
+      .name-card {
+        padding: 1.5rem;
+      }
+      
+      .main-title {
+        font-size: 3rem;
+      }
+      
+      .bismillah {
+        font-size: 2rem;
+      }
+      
+      .main-title .lord-worlds {
+        font-size: 1.8rem;
+      }
+      
+      .main-title .lord-worlds .arabic-text {
+        font-size: 1.2em;
       }
     }
   </style>
 </head>
 <body>
-  <h1>
-    In The Name Of <span>ALLAH</span>,<br>
-    <span>The Lord</span> Of The Worlds
-  </h1>
-  <h2>The Most Beautiful and Glorious Names</h2>
-  <div class="names-container">
-    <div class="name-card">
-      <h3>Ar-Rahman</h3>
-      <p>The Most Gracious</p>
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+  
+  <!-- Aurora Effects -->
+  <div class="aurora"></div>
+  
+  <!-- Divine Light -->
+  <div class="divine-light"></div>
+  
+  <!-- Cosmic Background -->
+  <div class="cosmic-bg"></div>
+
+  <!-- Geometric Background -->
+  <div class="geometric-bg"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+      <h1 class="main-title">
+        The 99 Beautiful Names of
+        <div class="allah-container">
+          <div class="divine-vertical-separator"></div>
+          <span class="allah">ALLAH</span>
+        </div>
+        <span class="lord-worlds">Lord of The Worlds<span class="arabic-text">رَبِّ الْعَالَمِينَ</span></span>
+        <div class="divine-vertical-separator"></div>
+      </h1>
+      <p class="subtitle">الأسماء الحسنى - Asma ul-Husna</p>
+      <p class="verse">"And to Allah belong the most beautiful names, so invoke Him by them." (Quran 7:180)</p>
+      <div class="names-counter" id="namesCounter">
+        <span class="counter-text">Displaying <span class="counter-number">0</span> Most Beautiful Names</span>
+      </div>
+    </header>
+
+    <!-- Names Grid -->
+    <div class="names-container" id="namesContainer">
+      <!-- Names will be populated by JavaScript -->
     </div>
-	</>
-    <div class="name-card">
-      <h3>Ar-Rahim</h3>
-      <p>The Most Merciful</p>
-    </div>
-    <div class="name-card">
-      <h3>Al-Malik</h3>
-      <p>The King and Owner</p>
-    </div>
-    <div class="name-card">
-      <h3>Al-Quddus</h3>
-      <p>The Absolutely Pure</p>
-    </div>
-    <div class="name-card">
-      <h3>As-Salam</h3>
-      <p>The Source of Peace</p>
-    </div>
-    <div class="name-card">
-      <h3>Al-Aziz</h3>
-      <p>The Almighty</p>
-    </div>
-    <div class="name-card">
-      <h3>Al-Hakim</h3>
-      <p>The All-Wise</p>
-    </div>
-    <div class="name-card">
-      <h3>Al-Karim</h3>
-      <p>The Generous</p>
-    </div>
-    <div class="name-card">
-      <h3>Ar-Razzaq</h3>
-      <p>The Provider</p>
-    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p class="footer-text">
+          Designed with love and reverence. All praise and glory belong to Allah (سبحانه وتعالى), 
+          the Creator of all worlds, the Most Gracious, the Most Merciful.
+        </p>
+        <p class="footer-verse">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p>
+      </div>
+    </footer>
   </div>
-  <footer>
-    Designed with ❤️. All praises are due to Allah, the Lord of all the worlds.
-    <br>
-    <a href="#">Learn More</a>
-  </footer>
+
+  <script>
+    // The Complete 99 Beautiful Names of Allah
+    const asmaUlHusna = [
+      { arabic: "الرَّحْمٰن", transliteration: "Ar-Rahman", meaning: "The Most Gracious" },
+      { arabic: "الرَّحِيم", transliteration: "Ar-Rahim", meaning: "The Most Merciful" },
+      { arabic: "الْمَلِك", transliteration: "Al-Malik", meaning: "The King" },
+      { arabic: "الْقُدُّوس", transliteration: "Al-Quddus", meaning: "The Holy One" },
+      { arabic: "السَّلاَم", transliteration: "As-Salam", meaning: "The Source of Peace" },
+      { arabic: "الْمُؤْمِن", transliteration: "Al-Mu'min", meaning: "The Guardian of Faith" },
+      { arabic: "الْمُهَيْمِن", transliteration: "Al-Muhaymin", meaning: "The Protector" },
+      { arabic: "الْعَزِيز", transliteration: "Al-Aziz", meaning: "The Mighty" },
+      { arabic: "الْجَبَّار", transliteration: "Al-Jabbar", meaning: "The Compeller" },
+      { arabic: "الْمُتَكَبِّر", transliteration: "Al-Mutakabbir", meaning: "The Supreme" },
+      { arabic: "الْخَالِق", transliteration: "Al-Khaliq", meaning: "The Creator" },
+      { arabic: "الْبَارِئ", transliteration: "Al-Bari'", meaning: "The Maker" },
+      { arabic: "الْمُصَوِّر", transliteration: "Al-Musawwir", meaning: "The Fashioner" },
+      { arabic: "الْغَفَّار", transliteration: "Al-Ghaffar", meaning: "The Forgiving" },
+      { arabic: "الْقَهَّار", transliteration: "Al-Qahhar", meaning: "The Subduer" },
+      { arabic: "الْوَهَّاب", transliteration: "Al-Wahhab", meaning: "The Bestower" },
+      { arabic: "الرَّزَّاق", transliteration: "Ar-Razzaq", meaning: "The Provider" },
+      { arabic: "الْفَتَّاح", transliteration: "Al-Fattah", meaning: "The Opener" },
+      { arabic: "اَلْعَلِيم", transliteration: "Al-Alim", meaning: "The All-Knowing" },
+      { arabic: "الْقَابِض", transliteration: "Al-Qabid", meaning: "The Contractor" },
+      { arabic: "الْبَاسِط", transliteration: "Al-Basit", meaning: "The Expander" },
+      { arabic: "الْخَافِض", transliteration: "Al-Khafid", meaning: "The Abaser" },
+      { arabic: "الرَّافِع", transliteration: "Ar-Rafi'", meaning: "The Exalter" },
+      { arabic: "الْمُعِز", transliteration: "Al-Mu'izz", meaning: "The Honorer" },
+      { arabic: "الْمُذِل", transliteration: "Al-Mudhill", meaning: "The Humiliator" },
+      { arabic: "السَّمِيع", transliteration: "As-Sami'", meaning: "The All-Hearing" },
+      { arabic: "الْبَصِير", transliteration: "Al-Basir", meaning: "The All-Seeing" },
+      { arabic: "الْحَكَم", transliteration: "Al-Hakam", meaning: "The Judge" },
+      { arabic: "الْعَدْل", transliteration: "Al-Adl", meaning: "The Just" },
+      { arabic: "اللَّطِيف", transliteration: "Al-Latif", meaning: "The Gentle" },
+      { arabic: "الْخَبِير", transliteration: "Al-Khabir", meaning: "The Aware" },
+      { arabic: "الْحَلِيم", transliteration: "Al-Halim", meaning: "The Forbearing" },
+      { arabic: "الْعَظِيم", transliteration: "Al-Azim", meaning: "The Magnificent" },
+      { arabic: "الْغَفُور", transliteration: "Al-Ghafur", meaning: "The Forgiving" },
+      { arabic: "الشَّكُور", transliteration: "Ash-Shakur", meaning: "The Appreciative" },
+      { arabic: "الْعَلِي", transliteration: "Al-Ali", meaning: "The Most High" },
+      { arabic: "الْكَبِير", transliteration: "Al-Kabir", meaning: "The Greatest" },
+      { arabic: "الْحَفِيظ", transliteration: "Al-Hafiz", meaning: "The Preserver" },
+      { arabic: "الْمُقِيت", transliteration: "Al-Muqit", meaning: "The Nourisher" },
+      { arabic: "الْحسِيب", transliteration: "Al-Hasib", meaning: "The Reckoner" },
+      { arabic: "الْجَلِيل", transliteration: "Al-Jalil", meaning: "The Majestic" },
+      { arabic: "الْكَرِيم", transliteration: "Al-Karim", meaning: "The Generous" },
+      { arabic: "الرَّقِيب", transliteration: "Ar-Raqib", meaning: "The Watchful" },
+      { arabic: "الْمُجِيب", transliteration: "Al-Mujib", meaning: "The Responsive" },
+      { arabic: "الْوَاسِع", transliteration: "Al-Wasi'", meaning: "The All-Encompassing" },
+      { arabic: "الْحَكِيم", transliteration: "Al-Hakim", meaning: "The Wise" },
+      { arabic: "الْوَدُود", transliteration: "Al-Wadud", meaning: "The Loving" },
+      { arabic: "الْمَجِيد", transliteration: "Al-Majid", meaning: "The Glorious" },
+      { arabic: "الْبَاعِث", transliteration: "Al-Ba'ith", meaning: "The Resurrector" },
+      { arabic: "الشَّهِيد", transliteration: "Ash-Shahid", meaning: "The Witness" },
+      { arabic: "الْحَق", transliteration: "Al-Haqq", meaning: "The Truth" },
+      { arabic: "الْوَكِيل", transliteration: "Al-Wakil", meaning: "The Trustee" },
+      { arabic: "الْقَوِيّ", transliteration: "Al-Qawiyy", meaning: "The Strong" },
+      { arabic: "الْمَتِين", transliteration: "Al-Matin", meaning: "The Firm" },
+      { arabic: "الْوَلِيّ", transliteration: "Al-Waliyy", meaning: "The Friend" },
+      { arabic: "الْحَمِيد", transliteration: "Al-Hamid", meaning: "The Praiseworthy" },
+      { arabic: "الْمُحْصِي", transliteration: "Al-Muhsi", meaning: "The Counter" },
+      { arabic: "الْمُبْدِئ", transliteration: "Al-Mubdi", meaning: "The Originator" },
+      { arabic: "الْمُعِيد", transliteration: "Al-Mu'id", meaning: "The Restorer" },
+      { arabic: "الْمُحْيِي", transliteration: "Al-Muhyi", meaning: "The Giver of Life" },
+      { arabic: "الْمُمِيت", transliteration: "Al-Mumit", meaning: "The Destroyer" },
+      { arabic: "الْحَي", transliteration: "Al-Hayy", meaning: "The Living" },
+      { arabic: "الْقَيُّوم", transliteration: "Al-Qayyum", meaning: "The Sustainer" },
+      { arabic: "الْوَاجِد", transliteration: "Al-Wajid", meaning: "The Finder" },
+      { arabic: "الْمَاجِد", transliteration: "Al-Majid", meaning: "The Noble" },
+      { arabic: "الْوَاحِد", transliteration: "Al-Wahid", meaning: "The Unique" },
+      { arabic: "الْأَحَد", transliteration: "Al-Ahad", meaning: "The One" },
+      { arabic: "الصَّمَد", transliteration: "As-Samad", meaning: "The Eternal" },
+      { arabic: "الْقَادِر", transliteration: "Al-Qadir", meaning: "The Capable" },
+      { arabic: "الْمُقْتَدِر", transliteration: "Al-Muqtadir", meaning: "The Powerful" },
+      { arabic: "الْمُقَدِّم", transliteration: "Al-Muqaddim", meaning: "The Expediter" },
+      { arabic: "الْمُؤَخِّر", transliteration: "Al-Mu'akhkhir", meaning: "The Delayer" },
+      { arabic: "الْأَوَّل", transliteration: "Al-Awwal", meaning: "The First" },
+      { arabic: "الْآخِر", transliteration: "Al-Akhir", meaning: "The Last" },
+      { arabic: "الظَّاهِر", transliteration: "Az-Zahir", meaning: "The Manifest" },
+      { arabic: "الْبَاطِن", transliteration: "Al-Batin", meaning: "The Hidden" },
+      { arabic: "الْوَالِي", transliteration: "Al-Wali", meaning: "The Governor" },
+      { arabic: "الْمُتَعَالِي", transliteration: "Al-Muta'ali", meaning: "The Most Exalted" },
+      { arabic: "الْبَرّ", transliteration: "Al-Barr", meaning: "The Source of Goodness" },
+      { arabic: "التَّوَّاب", transliteration: "At-Tawwab", meaning: "The Acceptor of Repentance" },
+      { arabic: "الْمُنْتَقِم", transliteration: "Al-Muntaqim", meaning: "The Avenger" },
+      { arabic: "الْعَفُوّ", transliteration: "Al-'Afuww", meaning: "The Pardoner" },
+      { arabic: "الرَّؤُوف", transliteration: "Ar-Ra'uf", meaning: "The Compassionate" },
+      { arabic: "مَالِكُ الْمُلْك", transliteration: "Malik al-Mulk", meaning: "Master of the Kingdom" },
+      { arabic: "ذُوالْجَلاَلِ وَالْإِكْرَام", transliteration: "Dhul-Jalali wal-Ikram", meaning: "Lord of Majesty and Bounty" },
+      { arabic: "الْمُقْسِط", transliteration: "Al-Muqsit", meaning: "The Equitable" },
+      { arabic: "الْجَامِع", transliteration: "Al-Jami'", meaning: "The Gatherer" },
+      { arabic: "الْغَنِيّ", transliteration: "Al-Ghaniyy", meaning: "The Independent" },
+      { arabic: "الْمُغْنِي", transliteration: "Al-Mughni", meaning: "The Enricher" },
+      { arabic: "الْمَانِع", transliteration: "Al-Mani'", meaning: "The Preventer" },
+      { arabic: "الضَّار", transliteration: "Ad-Darr", meaning: "The Distresser" },
+      { arabic: "النَّافِع", transliteration: "An-Nafi'", meaning: "The Propitious" },
+      { arabic: "النُّور", transliteration: "An-Nur", meaning: "The Light" },
+      { arabic: "الْهَادِي", transliteration: "Al-Hadi", meaning: "The Guide" },
+      { arabic: "الْبَدِيع", transliteration: "Al-Badi'", meaning: "The Incomparable" },
+      { arabic: "الْبَاقِي", transliteration: "Al-Baqi", meaning: "The Everlasting" },
+      { arabic: "الْوَارِث", transliteration: "Al-Warith", meaning: "The Inheritor" },
+      { arabic: "الرَّشِيد", transliteration: "Ar-Rashid", meaning: "The Righteous Teacher" },
+      { arabic: "الصَّبُور", transliteration: "As-Sabur", meaning: "The Patient" }
+    ];
+
+    // Create twinkling stars
+    function createStars() {
+      const starsContainer = document.getElementById('stars');
+      
+      for (let i = 0; i < 200; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        
+        const size = Math.random() * 3 + 1;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 3 + 's';
+        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        
+        starsContainer.appendChild(star);
+      }
+    }
+
+    // Create floating particles with enhanced effects
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      
+      for (let i = 0; i < 80; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 8 + 2;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 25 + 's';
+        particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+        
+        // Add varied particle colors
+        const colors = [
+          'radial-gradient(circle, rgba(255,215,0,0.9) 0%, rgba(255,215,0,0.3) 50%, transparent 100%)',
+          'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 50%, transparent 100%)',
+          'radial-gradient(circle, rgba(0,191,255,0.7) 0%, rgba(0,191,255,0.2) 50%, transparent 100%)'
+        ];
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Populate all 99 names dynamically with enhanced effects
+    function populateNames() {
+      const container = document.getElementById('namesContainer');
+      const counterElement = document.querySelector('.counter-number');
+      container.innerHTML = ''; // Clear existing content
+      let displayedCount = 0;
+      
+      asmaUlHusna.forEach((name, index) => {
+        const card = document.createElement('div');
+        card.classList.add('name-card');
+        
+        card.innerHTML = `
+          <div class="name-arabic">${name.arabic}</div>
+          <div class="name-transliteration">${name.transliteration}</div>
+          <div class="name-meaning">${name.meaning}</div>
+        `;
+        
+        // Add hover and click effects
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-10px)';
+          card.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.3)';
+          card.style.borderColor = 'rgba(255, 215, 0, 0.3)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0)';
+          card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
+          card.style.borderColor = 'rgba(255, 215, 0, 0.1)';
+        });
+        
+        card.addEventListener('click', () => {
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            card.style.transform = 'translateY(-10px)';
+          }, 200);
+        });
+        
+        container.appendChild(card);
+        displayedCount++;
+        
+        // Update counter with actual displayed count
+        counterElement.textContent = displayedCount;
+      });
+      
+      // Add final counter effect
+      if (displayedCount === 99) {
+        counterElement.style.color = '#ffd700';
+        counterElement.style.textShadow = '0 0 10px rgba(255, 215, 0, 0.5)';
+      }
+    }
+
+    // Initialize everything with cosmic enhancements
+    document.addEventListener('DOMContentLoaded', () => {
+      createStars();
+      createParticles();
+      populateNames();
+      
+      // Add dynamic cosmic background animation
+      setTimeout(() => {
+        document.body.style.animation = 'cosmicPulse 12s ease-in-out infinite';
+      }, 3000);
+      
+      // Add title glow enhancement after load
+      setTimeout(() => {
+        const allahSpan = document.querySelector('.allah');
+        if (allahSpan) {
+          allahSpan.style.filter = 'brightness(1.5) contrast(1.2)';
+        }
+      }, 2000);
+    });
+
+    // Enhanced cosmic animations
+    const cosmicStyle = document.createElement('style');
+    cosmicStyle.textContent = `
+      @keyframes cosmicPulse {
+        0%, 100% { 
+          filter: brightness(1) contrast(1) hue-rotate(0deg); 
+          transform: scale(1);
+        }
+        25% { 
+          filter: brightness(1.05) contrast(1.02) hue-rotate(5deg); 
+          transform: scale(1.001);
+        }
+        50% { 
+          filter: brightness(1.1) contrast(1.05) hue-rotate(10deg); 
+          transform: scale(1.002);
+        }
+        75% { 
+          filter: brightness(1.05) contrast(1.02) hue-rotate(5deg); 
+          transform: scale(1.001);
+        }
+      }
+      
+      .name-card:nth-child(even) {
+        animation-direction: reverse;
+      }
+      
+      .particle:nth-child(3n) {
+        background: radial-gradient(circle, rgba(255,215,0,0.95) 0%, rgba(255,255,255,0.4) 30%, transparent 100%) !important;
+      }
+      
+      .star:nth-child(5n) {
+        background: #ffd700 !important;
+        box-shadow: 0 0 10px #ffd700;
+      }
+    `;
+    document.head.appendChild(cosmicStyle);
+  </script>
 </body>
 </html>
